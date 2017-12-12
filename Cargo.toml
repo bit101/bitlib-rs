@@ -4,5 +4,5 @@ version = "0.1.0"
 authors = ["Keith Peters <kp@bit-101.com>"]
 
 [dependencies]
-cairo-rs = { version = "0.2.0", features = ["png"] }
+cairo-rs = { version = "0.3.0", features = ["png"] }
 rand = "0.3.18"
