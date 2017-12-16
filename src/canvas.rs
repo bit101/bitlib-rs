@@ -40,9 +40,9 @@ impl Canvas {
 
 pub trait BitContext {
     fn clear_rgb(&self, r: f64, g: f64, b: f64);
-    fn clear_color(&self, color: Color);
+    fn clear_color(&self, color: &Color);
 
-    fn set_source_color(&self, color: Color);
+    fn set_source_color(&self, color: &Color);
 
     fn fill_rectangle(&self, x: f64, y: f64, w: f64, h: f64);
     fn stroke_rectangle(&self, x: f64, y: f64, w: f64, h: f64);
@@ -106,11 +106,11 @@ impl BitContext for Context{
         self.restore();
     }
 
-    fn clear_color(&self, color: Color) {
+    fn clear_color(&self, color: &Color) {
         self.clear_rgb(color.r, color.g, color.b);
     }
 
-    fn set_source_color(&self, color: Color) {
+    fn set_source_color(&self, color: &Color) {
         self.set_source_rgba(color.r, color.g, color.b, color.a);
     }
 

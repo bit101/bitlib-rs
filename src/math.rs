@@ -35,6 +35,14 @@ pub fn clamp(value: f64, min: f64, max: f64) -> f64 {
     result
 }
 
+pub fn sin_range(angle: f64, min: f64, max: f64) -> f64 {
+    map(angle.sin(), -1.0, 1.0, min, max)
+}
+
+pub fn cos_range(angle: f64, min: f64, max: f64) -> f64 {
+    map(angle.cos(), -1.0, 1.0, min, max)
+}
+
 
 #[cfg(test)]
 mod tests {
