@@ -110,12 +110,6 @@ pub fn tangent_point_to_circle(point: &Point, circle: &Circle, anticlockwise: bo
 mod tests {
     use super::*;
 
-    // fn almost_eq(m: f64, n: f64) -> bool {
-    //     let max_diff = 0.0001;
-    //     let diff = f64::abs(m - n);
-    //     diff < max_diff
-    // }
-
     #[test]
     fn test_intersect() {
         let p0 = Point::new(-10.0, 0.0);

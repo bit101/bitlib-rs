@@ -48,6 +48,12 @@ pub fn cos_range(angle: f64, min: f64, max: f64) -> f64 {
 mod tests {
     use super::*;
 
+    fn almost_eq(m: f64, n: f64) -> bool {
+        let max_diff = 0.0001;
+        let diff = f64::abs(m - n);
+        diff < max_diff
+    }
+
     #[test]
     fn test_norm() {
         // in range
@@ -90,6 +96,22 @@ mod tests {
         // reversed min/max
         assert_eq!(clamp(-50.0, 100.0, 0.0), 0.0);
         assert_eq!(clamp(110.0, 100.0, 0.0), 100.0);
+    }
+
+    #[test]
+    fn test_sin_range() {
+        assert!(almost_eq(sin_range(0.0, 100.0, 400.0), 250.0));
+        assert!(almost_eq(sin_range(HALF_PI, 100.0, 400.0), 400.0));
+        assert!(almost_eq(sin_range(PI, 100.0, 400.0), 250.0));
+        assert!(almost_eq(sin_range(PI * 1.5, 100.0, 400.0), 100.0));
+    }
+
+    #[test]
+    fn test_cos_range() {
+        assert!(almost_eq(cos_range(0.0, 100.0, 400.0), 400.0));
+        assert!(almost_eq(cos_range(HALF_PI, 100.0, 400.0), 250.0));
+        assert!(almost_eq(cos_range(PI, 100.0, 400.0), 100.0));
+        assert!(almost_eq(cos_range(PI * 1.5, 100.0, 400.0), 250.0));
     }
 }
 
