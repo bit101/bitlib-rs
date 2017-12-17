@@ -30,20 +30,3 @@ pub fn make_frames(canvas: &Canvas, num_frames: i32, frames_path: &str, render_f
     }
 }
 
-#[cfg(target_os="macos")]
-pub fn display(path: &str) {
-    Command::new("sh")
-        .arg("-c")
-        .arg(format!("open {}", path))
-        .output()
-        .expect("couldn't display gif");
-}
-
-#[cfg(target_os="linux")]
-pub fn display(path: &str) {
-    Command::new("sh")
-        .arg("-c")
-        .arg(format!("xdg-open {}", path))
-        .output()
-        .expect("couldn't display gif");
-}
