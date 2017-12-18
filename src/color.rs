@@ -80,6 +80,38 @@ impl Color {
         Color::grey(rand.float(min, max))
     }
 
+    pub fn white() -> Color {
+        Color::rgb(1.0, 1.0, 1.0)
+    }
+
+    pub fn black() -> Color {
+        Color::rgb(0.0, 0.0, 0.0)
+    }
+
+    pub fn red() -> Color {
+        Color::rgb(1.0, 0.0, 0.0)
+    }
+
+    pub fn yellow() -> Color {
+        Color::rgb(1.0, 1.0, 0.0)
+    }
+
+    pub fn green() -> Color {
+        Color::rgb(0.0, 1.0, 0.0)
+    }
+
+    pub fn cyan() -> Color {
+        Color::rgb(0.0, 1.0, 1.0)
+    }
+
+    pub fn blue() -> Color {
+        Color::rgb(0.0, 0.0, 1.0)
+    }
+
+    pub fn magenta() -> Color {
+        Color::rgb(1.0, 0.0, 1.0)
+    }
+
     pub fn from_string(src: &str) -> Color {
         if &src[0..1] == "#" {
             let num = i64::from_str_radix(&src[1..], 16)
@@ -397,5 +429,57 @@ mod tests {
         assert_eq!(c.g, 0.0);
         assert_eq!(c.b, 0.0);
         assert_eq!(c.a, 1.0);
+    }
+
+    #[test]
+    fn test_raw_colors() {
+        let c = Color::black();
+        assert_eq!(c.r, 0.0);
+        assert_eq!(c.g, 0.0);
+        assert_eq!(c.b, 0.0);
+        assert_eq!(c.a, 1.0);
+
+        let c = Color::white();
+        assert_eq!(c.r, 1.0);
+        assert_eq!(c.g, 1.0);
+        assert_eq!(c.b, 1.0);
+        assert_eq!(c.a, 1.0);
+
+        let c = Color::red();
+        assert_eq!(c.r, 1.0);
+        assert_eq!(c.g, 0.0);
+        assert_eq!(c.b, 0.0);
+        assert_eq!(c.a, 1.0);
+
+        let c = Color::green();
+        assert_eq!(c.r, 0.0);
+        assert_eq!(c.g, 1.0);
+        assert_eq!(c.b, 0.0);
+        assert_eq!(c.a, 1.0);
+
+        let c = Color::blue();
+        assert_eq!(c.r, 0.0);
+        assert_eq!(c.g, 0.0);
+        assert_eq!(c.b, 1.0);
+        assert_eq!(c.a, 1.0);
+
+        let c = Color::yellow();
+        assert_eq!(c.r, 1.0);
+        assert_eq!(c.g, 1.0);
+        assert_eq!(c.b, 0.0);
+        assert_eq!(c.a, 1.0);
+
+        let c = Color::cyan();
+        assert_eq!(c.r, 0.0);
+        assert_eq!(c.g, 1.0);
+        assert_eq!(c.b, 1.0);
+        assert_eq!(c.a, 1.0);
+
+        let c = Color::magenta();
+        assert_eq!(c.r, 1.0);
+        assert_eq!(c.g, 0.0);
+        assert_eq!(c.b, 1.0);
+        assert_eq!(c.a, 1.0);
+
     }
 }
