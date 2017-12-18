@@ -40,3 +40,7 @@ main.rs
         canvas.write("output.png");
         open("output.png");
     }
+
+Output
+---
+![sample output](output.png)
